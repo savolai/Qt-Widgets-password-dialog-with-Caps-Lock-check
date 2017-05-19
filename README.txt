@@ -1,4 +1,4 @@
-Password dialog example. 
+Password dialog example
 
 This is perhaps for less security critical applications, i.e. for confirming the user indeed intends to do something and there is no undo. 
 
