@@ -1,4 +1,8 @@
-Password dialog intended for less security critical applications. 
+Password dialog example. 
+
+This is perhaps for less security critical applications, i.e. for confirming the user indeed intends to do something and there is no undo. 
+
+More security critical applications may want a separate button for checking password, and limiting the number of tries. This makes brute forcing more difficult.
 
 * Checks password on each keystroke
 * Enables OK button when password is correct
