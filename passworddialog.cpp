@@ -5,7 +5,8 @@
 
 #ifdef Q_OS_WIN32
 #include <windows.h>
-#else
+#endif
+#ifdef Q_OS_LINUX
 #include <X11/XKBlib.h>
 #undef KeyPress
 #undef KeyRelease
@@ -39,6 +40,7 @@ bool PasswordDialog::getCapsLockOn()
 #ifdef Q_OS_WIN32 // MS Windows version
     return GetKeyState(VK_CAPITAL) == 1;
 #else // X11 version (Linux/Unix/Mac OS X/etc...)
+#ifdef Q_OS_LINUX
     Display* d = XOpenDisplay((char*)0);
     bool caps_state = false;
     if (d) {
@@ -47,6 +49,7 @@ bool PasswordDialog::getCapsLockOn()
         caps_state = (n & 0x01) == 1;
     }
     return caps_state;
+#endif
 #endif
 }
 void PasswordDialog::checkCapsLock()
